@@ -1,4 +1,3 @@
-import pandas as pd
 import re
 
 def generate_ngrams(s, n):
@@ -18,10 +17,18 @@ def generate_ngrams(s, n):
     return a
 
 def n_gram(data):
+    data = eval(str(data))
+    data = " ".join(data)
 
     # Generate n-grams
     unigram = generate_ngrams(data, 1)
     bigram = generate_ngrams(data, 2)
     trigram = generate_ngrams(data, 3)
+
+    data = [
+        unigram,
+        bigram,
+        trigram
+    ]
 
     return data
