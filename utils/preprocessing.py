@@ -16,6 +16,6 @@ def preprocessing(text):
     factory = StemmerFactory()
     stemmer = factory.create_stemmer()
     list_tokens = tokens_without_stopword
-    output   = [stemmer.stem(token) for token in list_tokens]
+    output = [stemmer.stem(token) for token in list_tokens]
 
     return output
