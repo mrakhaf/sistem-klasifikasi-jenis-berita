@@ -26,7 +26,7 @@ def classify():
     data = n_gram(data)
 
     #tf-idf
-    data = count_tfidf([data],bow_path,idf_path)
+    data = count_tfidf([data[1]],bow_path,idf_path)
 
     #predict
     loaded_model = joblib.load(saved_model_path)
