@@ -5,9 +5,9 @@ from utils.n_gram import n_gram
 from utils.tf_idf import count_tfidf
 import joblib
 
-bow_path = '' #lokasi file pickle bag_of_word
-idf_path = '' #lokasi file pickle idf
-saved_model_path = ''
+bow_path = 'notebook/bag_of_word.pickle' #lokasi file pickle bag_of_word
+idf_path = 'notebook/idf.pickle' #lokasi file pickle idf
+saved_model_path = 'notebook/naivebayes_model.sav'
 
 app = Flask(__name__)
 
