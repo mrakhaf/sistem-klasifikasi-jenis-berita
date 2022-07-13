@@ -5,6 +5,9 @@ from utils.n_gram import n_gram
 from utils.tf_idf import count_tfidf
 import joblib
 
+bow_path = '' #lokasi file pickle bag_of_word
+idf_path = '' #lokasi file pickle idf
+saved_model_path = ''
 
 app = Flask(__name__)
 
@@ -23,10 +26,10 @@ def classify():
     data = n_gram(data)
 
     #tf-idf
-    data = count_tfidf([data])
+    data = count_tfidf([data],bow_path,idf_path)
 
     #predict
-    loaded_model = joblib.load('notebook\naivebayes_model.sav')
+    loaded_model = joblib.load(saved_model_path)
     data = loaded_model.predict(data)[0]
 
     return str(data)
