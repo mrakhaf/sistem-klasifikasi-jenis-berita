@@ -19,18 +19,53 @@ def home():
 def classify():
     data = request.form.get('berita')
 
+    print()
+    print()
+    print('data')
+    print(data)
+
     #preprocessing
     data = preprocessing(data)
+    print()
+    print()
+    print('preprocessing')
+    print(data)
+
 
     #n-gram
     data = n_gram(data)
+    print()
+    print()
+    print('n-gram')
+    print(data[1])
+
+
 
     #tf-idf
     data = count_tfidf([data[1]],bow_path,idf_path)
+    print()
+    print()
+    print('tf-idf')
+    print(data)
+
 
     #predict
     loaded_model = joblib.load(saved_model_path)
+    proba = loaded_model.predict_proba(data)[0]    
     data = loaded_model.predict(data)[0]
+    print()
+    print()
+    print('predict')
+    print(data)
+    print('Probality untuk label entertaiment : ')
+    print(proba[0])
+    print('Probality untuk label olahraga : ')
+    print(proba[1])
+    print()
+    print()
+    print()
+
+
 
     return json.dumps({
         'data': data
