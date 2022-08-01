@@ -20,14 +20,14 @@ def classify():
     data = request.form.get('berita')
 
     print()
-    print()
+    print("=====================================================================================")
     print('data')
     print(data)
 
     #preprocessing
     data = preprocessing(data)
     print()
-    print()
+    print("=====================================================================================")
     print('preprocessing')
     print(data)
 
@@ -35,7 +35,7 @@ def classify():
     #n-gram
     data = n_gram(data)
     print()
-    print()
+    print("=====================================================================================")
     print('n-gram')
     print(data[1])
 
@@ -44,7 +44,7 @@ def classify():
     #tf-idf
     data = count_tfidf([data[1]],bow_path,idf_path)
     print()
-    print()
+    print("=====================================================================================")
     print('tf-idf')
     print(data)
 
@@ -54,13 +54,13 @@ def classify():
     proba = loaded_model.predict_proba(data)[0]    
     data = loaded_model.predict(data)[0]
     print()
-    print()
+    print("=====================================================================================")
     print('predict')
     print(data)
     print('Probality untuk label entertaiment : ')
-    print(proba[0])
+    print("%.100f" % proba[0])
     print('Probality untuk label olahraga : ')
-    print(proba[1])
+    print("%.100f" % proba[1])
     print()
     print()
     print()
